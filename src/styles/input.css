@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+@layer base {
+  body {
+    @apply scroll-smooth bg-gray-100;
+  }
+
+  nav {
+    @apply sticky top-0 z-10 flex h-[70px] w-full items-center justify-between bg-white px-16 shadow-md;
+  }
+
+  nav button {
+    @apply rounded-md bg-black px-5 py-2 text-white;
+  }
+
+  nav h1 {
+    @apply text-lg font-semibold;
+  }
+
+  main {
+    @apply mx-0 my-2;
+  }
+
+  footer {
+    @apply mb-20 mt-44 text-center;
+  }
+}
+
+main section div.active-notes {
+  @apply flex w-full flex-wrap justify-center gap-7 max-md:gap-2;
+}
+
+main section div.archived-notes {
+  @apply flex w-full flex-wrap justify-center gap-7 max-md:gap-2;
+}
+
+main section div.active-notes div.note {
+  @apply rounded-xl border-[1.5px] p-4;
+}
+
+main section div.archived-notes div.note {
+  @apply rounded-xl border-[1.5px] p-4;
+}
+
+/* add note modal */
+main div.add-form h1 {
+  @apply mb-5 text-xl font-bold;
+}
+
+main div.add-form form {
+  @apply grid gap-3;
+}
+
+main div.add-form form .skat {
+  @apply grid gap-1;
+}
+
+main div.add-form form button {
+  @apply w-[120px] rounded-md py-2 text-white;
+}
+
+main div.add-form form button.cancel-btn {
+  @apply w-[120px] rounded-md bg-red-500 py-2 text-white;
+}
+
+main div.add-form form input,
+main div.add-form form textarea {
+  @apply min-h-[40px] w-full border-[1.5px] p-2;
+}
