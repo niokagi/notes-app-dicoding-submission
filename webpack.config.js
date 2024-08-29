@@ -3,33 +3,33 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from "dotenv-webpack";
 
 export default {
-  entry: "./src/js/index.js", // Entry point utama aplikasi
+  entry: "./src/js/index.js",
   output: {
-    filename: "bundle.js", // File output setelah di-bundle
-    path: path.resolve("dist"), // Output ke folder dist
-    clean: true, // Bersihkan folder dist setiap build
+    filename: "bundle.js", 
+    path: path.resolve("dist"),
+    clean: true, 
   },
-  mode: "development", // Ubah ke 'production' untuk build final
+  mode: "development", 
   devServer: {
-    static: path.resolve("dist"), // Folder yang dilayani oleh webpack-dev-server
-    hot: true, // Hot module replacement
+    static: path.resolve("dist"), 
+    hot: true, 
   },
   module: {
     rules: [
       {
-        test: /\.css$/, // Untuk meng-handle file CSS
+        test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html", // Path ke file HTML template
-      filename: "index.html", // Nama file HTML di folder dist
+      template: "index.html", 
+      filename: "index.html", 
     }),
     new Dotenv(),
   ],
   resolve: {
-    extensions: [".js"], // Resolve .js file extensions
+    extensions: [".js"], 
   },
 };
