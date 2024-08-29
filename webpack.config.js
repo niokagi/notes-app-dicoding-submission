@@ -1,5 +1,6 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import Dotenv from "dotenv-webpack";
 
 export default {
   entry: "./src/js/index.js", // Entry point utama aplikasi
@@ -23,9 +24,10 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html", // Path ke file HTML template
+      template: "index.html", // Path ke file HTML template
       filename: "index.html", // Nama file HTML di folder dist
     }),
+    new Dotenv(),
   ],
   resolve: {
     extensions: [".js"], // Resolve .js file extensions

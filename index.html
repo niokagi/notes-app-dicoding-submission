@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,13 +14,23 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/styles/output.css" />
   </head>
 
   <body>
     <nav-bar></nav-bar>
+    <div
+      id="loading-indicator"
+      class="fixed inset-0 flex items-center justify-center hidden bg-black bg-opacity-50 z-50"
+    >
+      <div
+        class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"
+      ></div>
+    </div>
     <main>
+      <!-- hidden items -->
       <note-modal></note-modal>
+
+      <!--  -->
       <section
         class="mx-6 my-6 grid gap-7 rounded-lg bg-white px-6 py-10 shadow-md max-md:mx-2 max-md:px-2"
       >
@@ -43,6 +53,51 @@
       </section>
     </main>
     <my-footer></my-footer>
-    <script type="module" src="./bundle.js"></script>
+
+    <!-- Modal Form -->
+    <div
+      id="modal-backdrop"
+      class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 z-50"
+    >
+      <div
+        id="add-form"
+        class="fixed inset-1/4 bg-white p-6 rounded-lg shadow-lg z-60"
+      >
+        <button
+          id="close-btn"
+          class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full"
+        >
+          X
+        </button>
+        <form>
+          <label for="title" class="block text-sm font-medium text-gray-700"
+            >Title</label
+          >
+          <input
+            type="text"
+            id="title"
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            required
+          />
+
+          <label for="body" class="block text-sm font-medium text-gray-700 mt-4"
+            >Body</label
+          >
+          <textarea
+            id="body"
+            rows="4"
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            required
+          ></textarea>
+
+          <button
+            type="submit"
+            class="save-btn mt-4 bg-blue-500 text-white px-4 py-2 rounded-md"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
